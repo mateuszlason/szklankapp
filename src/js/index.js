@@ -8,10 +8,11 @@ console.log('HELLO 🚀')
 
 const buttonAdd = document.querySelector('.button__dodaj--js');
 const buttonSubtract = document.querySelector('.button__usun--js');
-let number = 0;
-document.querySelector('.liczba--js').innerHTML = number;
+let number = document.querySelector('.liczba--js');
+number = 0;
+number.innerHTML = number;
 
 buttonAdd.addEventListener('click', () => {
 number = number + 1;
-document.querySelector('.liczba--js').innerHTML = number;
+number.document.innerHTML = numberO;
 });
