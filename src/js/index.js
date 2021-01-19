@@ -17,18 +17,6 @@ buttonAdd.addEventListener("click", () => {
   numberO.innerHTML = number;
 });
 
-<<<<<<< HEAD
-
-buttonSubtract.addEventListener('click', () => {
-    number = number - 1;
-    document.querySelector('.liczba--js').innerHTML = number;
-    if (number < 0) {
-    number = 0;
-    document.querySelector('.liczba--js').innerHTML = number;
-    }
-    });
-    
-=======
 buttonSubtract.addEventListener("click", () => {
   number = number - 1;
   numberO.innerHTML = number;
@@ -37,4 +25,3 @@ buttonSubtract.addEventListener("click", () => {
     numberO.innerHTML = number;
   }
 });
->>>>>>> jstest
