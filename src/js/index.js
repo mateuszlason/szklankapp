@@ -1,18 +1,27 @@
-import '../scss/main.scss';
-import {registerSW} from './pwa.js';
+import "../scss/main.scss";
+import { registerSW } from "./pwa.js";
 registerSW();
 
 /* place your code below */
 
-console.log('HELLO 🚀')
+console.log("HELLO 🚀");
 
-const buttonAdd = document.querySelector('.button__dodaj--js');
-const buttonSubtract = document.querySelector('.button__usun--js');
-let number = document.querySelector('.liczba--js');
-number = 0;
-number.innerHTML = number;
+const buttonAdd = document.querySelector(".button__dodaj--js");
+const buttonSubtract = document.querySelector(".button__usun--js");
+const numberO = document.querySelector(".liczba--js");
 
-buttonAdd.addEventListener('click', () => {
-number = number + 1;
-number.document.innerHTML = numberO;
+let number = 0;
+numberO.innerHTML = number;
+buttonAdd.addEventListener("click", () => {
+  number = number + 1;
+  numberO.innerHTML = number;
+});
+
+buttonSubtract.addEventListener("click", () => {
+  number = number - 1;
+  numberO.innerHTML = number;
+  if (number < 0) {
+    number = 0;
+    numberO.innerHTML = number;
+  }
 });
