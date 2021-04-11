@@ -1,58 +1,38 @@
 @import "~normalize.css";
 @import "_variables";
-@import "modules/hello.scss";
+@import "szklanka.scss";
+@import "wyniki.scss";
 
 body {
-  background-color: #3767ad;
+  background: rgb(51, 139, 187);
+  background: linear-gradient(
+    149deg,
+    rgb(62, 169, 226) 0%,
+    rgb(12, 70, 102) 100%
+  );
   display: flex;
-  align-items: center;
   justify-content: center;
   min-height: 100vh;
-  font-family: Roboto;
-}
-
-h1 {
-  color: #fff;
-  margin-bottom: 40px;
+  font-family: "Poppins", sans-serif;
 }
 
 .main {
   display: flex;
-  align-items: center;
-  text-align: center;
   flex-direction: column;
-  flex-wrap: wrap;
-}
+  text-align: center;
+  width: 100%;
+  height: 100%;
 
-.button {
-  font-style: normal;
-  font-weight: 500;
-  font-family: Roboto;
-  line-height: 21px;
-  border: 0;
-  margin: 25px 0 0 0;
-  &__dodaj {
-    width: 216px;
-    height: 47px;
-    background: #ffffff;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 4px;
-    font-size: 18px;
-    color: #000;
-  }
-  &__usun {
-    font-size: 14px;
-    line-height: 16px;
-    color: #f5e5e7;
-    background-color: #3767ad;
+  &__header {
+    margin-top: 60px;
+    margin-bottom: 84px;
+    color: #fff;
   }
 }
 
-.liczba {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%);
-    font-size: 60px;
-    font-weight: 600;
-  }
+.grid {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+}

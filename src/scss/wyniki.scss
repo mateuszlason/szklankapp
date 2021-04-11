@@ -1,0 +1,34 @@
+.wyniki {
+  color: white;
+  display: flex;
+  flex-flow: column nowrap;
+
+  &__tabela {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 5px 10px 11px rgb(0 0 0 / 25%);
+  }
+  & thead tr {
+    background-color: #174e7c;
+    color: #ffffff;
+  }
+  & th,
+  td {
+    padding: 12px 15px;
+  }
+  & tbody tr {
+    border-bottom: 1px solid #7fb4f0;
+    background-color: #2196f3;
+    color: white;
+  }
+  & tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+    color: #174e7c;
+  }
+  & tbody tr:last-of-type {
+    border-bottom: 5px solid #2196f3;
+  }
+}
