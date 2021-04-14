@@ -1,12 +1,14 @@
-![cover](https://cotenfrontend.pl/img/cover.png)
+![cover](https://mateuszlason.github.io/szklankapp/)
 
-# WTF Webpack Starter Kit 
+# SzklankApp
 
-Simple toolkit for your static websites development.
+---
 
-## How to use it?
+I've made a tiny app for counting your daily water consumption.
 
-Click on `Use this template` button to generate a new repository based on this starter kit. After that clone it to your computer, go to the project directory in console and type `npm install`.
+Your past results are shown in a pretty table.
+
+Data is stored in `Local Storage`.
 
 ## Available scripts
 
@@ -15,4 +17,3 @@ Click on `Use this template` button to generate a new repository based on this s
 `npm run build` - runs build process for production
 
 `npm run publish` - runs build process and publish the page using `gh-pages` branch
-

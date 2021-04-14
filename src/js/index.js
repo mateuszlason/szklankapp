@@ -34,24 +34,38 @@ if (localStorage.getItem(key)) {
 }
 numberO.innerHTML = number;
 
+//this way I can have my dates sorted right
+function formatDate(unformatedDate) {
+  const options = {
+    weekday: "long",
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  };
+  return new Date(unformatedDate).toLocaleDateString("pl-PL", options);
+}
+
 function getRate(value) {
-  if (value > 12) return "Hamuj! To za dużo! 😰";
-  else if (value >= 8) return "Wspaniale 😎";
-  else if (value >= 6) return "Okej.. 👍";
-  else if (value >= 4) return "Słabo 🙅‍♀️";
-  else if (value >= 0) return "Tragedia 💀";
+  if (value > 14) return "Hamuj! 😰";
+  else if (value >= 12) return "Wspaniale 😎";
+  else if (value >= 10) return "Bardzo dobrze 🤗";
+  else if (value >= 8) return "Coraz bliżej celu 🤔";
+  else if (value >= 6) return "Tragedia 🙄";
+  else if (value >= 4) return "Odwodnienie 💧";
+  else if (value >= 0) return "Śmierć 💀";
 }
 
 function getAllGlasses() {
-  let result = `<thead><tr><th>Data</th><th>Liczba szklanek</th><th>Ocena</th></tr></thead>
-  <tbody>`;
-  Object.keys(localStorage).forEach((key) => {
+  const storage = Object.keys(localStorage).sort((a, b) => {
+    return new Date(b) - new Date(a);
+  });
+  let content = "";
+  storage.forEach((key) => {
     let value = localStorage.getItem(key);
-    result += `<tr><td>${key}</td><td>${value}</td><td>${getRate(
+    content += `<tr><td>${formatDate(key)}</td><td>${value}</td><td>${getRate(
       value
     )}</td></tr>`;
+    tableContent.innerHTML = content;
   });
-  result += `</tbody>`;
-  tableContent.innerHTML = result;
 }
 getAllGlasses();

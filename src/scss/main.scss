@@ -26,11 +26,25 @@ body {
   height: 100%;
 
   &__header {
-    margin: 60px 0 84px 0;
+    margin: 0 0 44px 0;
+    width: 100vw;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     color: #fff;
-    padding: 14px 28px;
+    padding: 14px 0;
     background-color: #174e7c;
-    border-radius: 9999px;
+    border-radius: 0 0 100% 100%;
+    font-size: 22px;
+    @media (min-width: 720px) {
+      font-size: 32px;
+    }
+  }
+  &__paragraph {
+    color: #fff;
+    font-size: 20px;
+    margin-bottom: 60px;
   }
 }
 
