@@ -9,11 +9,6 @@
     "build": "webpack --config webpack.prod.js --mode production",
     "publish": "npm run build && gh-pages -d dist"
   },
-  "keywords": [
-    "Webpack",
-    "boilerplate"
-  ],
-  "author": "Maciek Korsan",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.10.1",
