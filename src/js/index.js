@@ -1,26 +1,41 @@
 import "../scss/main.scss";
 
-/* place your code below */
-
-console.log("HELLO 🚀");
+console.log("Hello Recruiter! 😎");
 
 const buttonAdd = document.querySelector(".licznik-button__dodaj--js");
 const buttonSubtract = document.querySelector(".licznik-button__usun--js");
+
 const numberO = document.querySelector(".liczba--js");
 const key = new Date().toISOString().slice(0, 10);
+
 const tableContent = document.querySelector(".wyniki__tabela--js");
+
 const woda = document.querySelector(".szklanka__woda");
+const szklanka = document.querySelector(".szklanka");
+
+//fixing transition bug on load
+setTimeout(() => {
+  szklanka.classList.remove("transitionOffOnLoad");
+}, 100);
 
 let number = 0;
+//making number valid for class assignment
+function floorToOddNumber() {
+  if (number % 2 === 0) return number - 1;
+  return number;
+}
 
+//if there's a key from today - use it, else create a new one
 if (localStorage.getItem(key)) {
   number = localStorage.getItem(key);
 } else {
   localStorage.setItem(key, 0);
 }
-woda.classList.add(`stage${number}`);
+woda.classList.add(`stage${floorToOddNumber()}`);
 numberO.innerHTML = number;
 
+//onClicks with class assignment for given stage
+//call to complete the table
 buttonAdd.addEventListener("click", () => {
   number++;
   numberO.innerHTML = number;
@@ -47,7 +62,7 @@ buttonSubtract.addEventListener("click", () => {
   numberO.innerHTML = number;
 });
 
-//this way I can have my dates sorted right
+//returning a PL date after all of em are sorted
 function formatDate(unformatedDate) {
   const options = {
     weekday: "long",
@@ -68,6 +83,7 @@ function getRate(value) {
   else if (value >= 0) return "Śmierć 💀";
 }
 
+//table fill function
 function getAllGlasses() {
   const storage = Object.keys(localStorage).sort((a, b) => {
     return new Date(b) - new Date(a);

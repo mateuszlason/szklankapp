@@ -2,14 +2,19 @@
   height: 350px;
   position: relative;
   width: max-content;
+
   &__liczba {
     position: absolute;
-    top: 45%;
+    top: 40%;
     left: 50%;
+    z-index: 20;
     transform: translate(-50%);
     font-size: 60px;
     font-weight: 600;
-    color: white;
+    color: #174e7c;
+    width: 70px;
+    border-radius: 50%;
+    // background-color: #2196f3;
   }
 
   &__pusta {
@@ -30,22 +35,52 @@
     width: 126px;
     height: 0;
     z-index: 10;
-
-    transition: border 1s ease-in-out;
+    transition: border 1s ease-out;
     &.stage0 {
       border-left: 0 solid transparent;
       border-right: 0 solid transparent;
-      border-top: 0 solid blue;
+      border-top: 0 solid #2196f3;
     }
     &.stage1 {
-      border-left: 20px solid transparent;
-      border-right: 20px solid transparent;
-      border-top: 120px solid blue;
+      border-left: 3px solid transparent;
+      border-right: 3px solid transparent;
+      border-top: 20px solid #2196f3;
     }
-    &.stage2 {
-      border-left: 35px solid transparent;
-      border-right: 35px solid transparent;
-      border-top: 250px solid blue;
+    &.stage3 {
+      border-left: 10px solid transparent;
+      border-right: 10px solid transparent;
+      border-top: 60px solid #2196f3;
+    }
+    &.stage5 {
+      border-left: 15px solid transparent;
+      border-right: 15px solid transparent;
+      border-top: 100px solid #2196f3;
+    }
+    &.stage7 {
+      border-left: 21px solid transparent;
+      border-right: 21px solid transparent;
+      border-top: 140px solid #2196f3;
+    }
+    &.stage9 {
+      border-left: 31px solid transparent;
+      border-right: 31px solid transparent;
+      border-top: 200px solid #2196f3;
+    }
+    &.stage11 {
+      border-left: 40px solid transparent;
+      border-right: 40px solid transparent;
+      border-top: 250px solid #2196f3;
+    }
+    &.stage13 {
+      border-left: 50px solid transparent;
+      border-right: 50px solid transparent;
+      border-top: 300px solid #2196f3;
+    }
+    &.stage15 {
+      border-left: 58px solid transparent;
+      border-right: 58px solid transparent;
+      border-top: 340px solid #1e83d6;
+      border-radius: 10px 10px 0 0;
     }
   }
 }
