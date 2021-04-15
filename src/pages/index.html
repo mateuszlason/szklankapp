@@ -9,16 +9,16 @@
       content="Maleńka aplikacja do liczenia szklanek wody."
     />
     <!-- Title -->
-    <meta property="og:title" content="" />
-    <!-- OPTIONAL description. 2-4 sentences. -->
-    <meta property="og:description" content="" />
+    <meta property="og:title" content="SzklankApp" />
+
+    <meta
+      property="og:description"
+      content="Maleńka aplikacja do liczenia szklanek wody. Twoje poprzednie wyniki zostaną zapisane w tabeli."
+    />
     <!-- full url with http(s) ie. https://maciejkorsan.github.io/my-repo/ -->
     <meta property="og:url" content="" />
     <!-- full url to the image with http(s) ie. https://maciejkorsan.github.io/my-repo/assets/img/fb.png. Facebook suggests at least 1200 x 630. -->
-    <meta
-      property="og:image"
-      content="https://maciejkorsan.com/wtf-gulp-starter/assets/img/cover.png"
-    />
+    <meta property="og:image" content="" />
 
     <link rel="apple-touch-icon" sizes="180x180" href="" />
     <link rel="apple-touch-icon" sizes="167x167" href="" />
@@ -48,19 +48,23 @@
             <tbody class="wyniki__tabela--js"></tbody>
           </table>
         </section>
-        <section class="szklanka">
-          <h2 class="szklanka__header">No to ile??</h2>
-          <img class="szklanka__img" src="../assets/img/water-glass.svg" />
-          <span class="szklanka__liczba liczba--js"></span>
+        <section class="licznik">
+          <h2 class="licznik__header">No to ile??</h2>
+          <div class="szklanka">
+            <div class="szklanka__pusta"></div>
+            <div class="szklanka__woda"></div>
+            <span class="szklanka__liczba liczba--js"></span>
+          </div>
+
           <button
-            type="szklanka-button"
-            class="szklanka-button szklanka-button__dodaj szklanka-button__dodaj--js"
+            type="licznik-button"
+            class="licznik-button licznik-button__dodaj licznik-button__dodaj--js"
           >
             dodej szklonke
           </button>
           <button
             type="button"
-            class="szklanka-button szklanka-button__usun szklanka-button__usun--js"
+            class="licznik-button licznik-button__usun licznik-button__usun--js"
           >
             odejmij szklonke
           </button>

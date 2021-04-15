@@ -4,17 +4,32 @@ import "../scss/main.scss";
 
 console.log("HELLO 🚀");
 
-const buttonAdd = document.querySelector(".szklanka-button__dodaj--js");
-const buttonSubtract = document.querySelector(".szklanka-button__usun--js");
+const buttonAdd = document.querySelector(".licznik-button__dodaj--js");
+const buttonSubtract = document.querySelector(".licznik-button__usun--js");
 const numberO = document.querySelector(".liczba--js");
 const key = new Date().toISOString().slice(0, 10);
 const tableContent = document.querySelector(".wyniki__tabela--js");
+const woda = document.querySelector(".szklanka__woda");
 
 let number = 0;
+
+if (localStorage.getItem(key)) {
+  number = localStorage.getItem(key);
+} else {
+  localStorage.setItem(key, 0);
+}
+woda.classList.add(`stage${number}`);
+numberO.innerHTML = number;
+
 buttonAdd.addEventListener("click", () => {
   number++;
   numberO.innerHTML = number;
   localStorage.setItem(key, number);
+
+  if (number === 1) woda.classList.replace("stage0", "stage1");
+  else if (number >= 3 && number <= 15 && number % 2 !== 0) {
+    woda.classList.replace(`stage${number - 2}`, `stage${number}`);
+  }
   getAllGlasses();
 });
 
@@ -22,17 +37,15 @@ buttonSubtract.addEventListener("click", () => {
   if (number > 0) {
     number--;
     localStorage.setItem(key, number);
+    if (number === 0)
+      woda.classList.replace(`stage${number + 1}`, `stage${number}`);
+    else if (number >= 1 && number <= 13 && number % 2 !== 0) {
+      woda.classList.replace(`stage${number + 2}`, `stage${number}`);
+    }
     getAllGlasses();
   }
   numberO.innerHTML = number;
 });
-
-if (localStorage.getItem(key)) {
-  number = localStorage.getItem(key);
-} else {
-  localStorage.setItem(key, 0);
-}
-numberO.innerHTML = number;
 
 //this way I can have my dates sorted right
 function formatDate(unformatedDate) {

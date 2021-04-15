@@ -1,49 +1,7 @@
 .szklanka {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  justify-content: center;
-  align-items: center;
+  height: 350px;
   position: relative;
-  &-button {
-    font-style: normal;
-    font-weight: bold;
-    line-height: 21px;
-    border: 0;
-    margin: 25px 0 0 0;
-    &:focus {
-      outline-style: none;
-    }
-
-    &__dodaj {
-      width: 216px;
-      height: 47px;
-      background: #ffffff;
-      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-      border-radius: 6px;
-      font-size: 18px;
-      color: #2196f3;
-      &:hover {
-        background-color: #2196f3;
-        color: white;
-      }
-    }
-    &__usun {
-      font-size: 16px;
-      line-height: 20px;
-      color: #f5e5e7;
-      padding: 8px 16px;
-      background: none;
-    }
-  }
-  &__header {
-    color: white;
-    font-size: 28px;
-  }
-  &__img {
-    margin-top: 25px;
-  }
-
+  width: max-content;
   &__liczba {
     position: absolute;
     top: 45%;
@@ -52,5 +10,42 @@
     font-size: 60px;
     font-weight: 600;
     color: white;
+  }
+
+  &__pusta {
+    width: 150px;
+    z-index: 0;
+    height: 0;
+    border-left: 60px solid transparent;
+    border-right: 60px solid transparent;
+    border-top: 350px solid #dede;
+    border-radius: 15px;
+  }
+
+  &__woda {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    bottom: 12px;
+    width: 126px;
+    height: 0;
+    z-index: 10;
+
+    transition: border 1s ease-in-out;
+    &.stage0 {
+      border-left: 0 solid transparent;
+      border-right: 0 solid transparent;
+      border-top: 0 solid blue;
+    }
+    &.stage1 {
+      border-left: 20px solid transparent;
+      border-right: 20px solid transparent;
+      border-top: 120px solid blue;
+    }
+    &.stage2 {
+      border-left: 35px solid transparent;
+      border-right: 35px solid transparent;
+      border-top: 250px solid blue;
+    }
   }
 }
