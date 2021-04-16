@@ -19,11 +19,6 @@ setTimeout(() => {
 }, 100);
 
 let number = 0;
-//making number valid for class assignment
-function floorToOddNumber() {
-  if (number % 2 === 0) return number - 1;
-  return number;
-}
 
 //if there's a key from today - use it, else create a new one
 if (localStorage.getItem(key)) {
@@ -31,8 +26,16 @@ if (localStorage.getItem(key)) {
 } else {
   localStorage.setItem(key, 0);
 }
-woda.classList.add(`stage${floorToOddNumber()}`);
 numberO.innerHTML = number;
+
+//making number valid for class assignment
+function floorToOddNumber() {
+  let numCopy = number;
+  console.log(numCopy);
+  if (numCopy > 0 && numCopy % 2 === 0) return numCopy - 1;
+  return numCopy;
+}
+woda.classList.add(`stage${floorToOddNumber()}`);
 
 //onClicks with class assignment for given stage
 //call to complete the table
@@ -42,7 +45,7 @@ buttonAdd.addEventListener("click", () => {
   localStorage.setItem(key, number);
 
   if (number === 1) woda.classList.replace("stage0", "stage1");
-  else if (number >= 3 && number <= 15 && number % 2 !== 0) {
+  if (number >= 3 && number <= 15 && number % 2 !== 0) {
     woda.classList.replace(`stage${number - 2}`, `stage${number}`);
   }
   getAllGlasses();
@@ -54,8 +57,9 @@ buttonSubtract.addEventListener("click", () => {
     localStorage.setItem(key, number);
     if (number === 0)
       woda.classList.replace(`stage${number + 1}`, `stage${number}`);
-    else if (number >= 1 && number <= 13 && number % 2 !== 0) {
-      woda.classList.replace(`stage${number + 2}`, `stage${number}`);
+    //adjusting even numbers so the animation matches "add" transition
+    if (number >= 2 && number <= 14 && number % 2 == 0) {
+      woda.classList.replace(`stage${number + 1}`, `stage${number - 1}`);
     }
     getAllGlasses();
   }
