@@ -9,6 +9,7 @@ const numberO = document.querySelector(".liczba--js");
 const key = new Date().toISOString().slice(0, 10);
 
 const tableContent = document.querySelector(".wyniki__tabela--js");
+const tableCleanup = document.querySelector(".wyniki__button--js");
 
 const woda = document.querySelector(".szklanka__woda");
 const szklanka = document.querySelector(".szklanka");
@@ -31,7 +32,6 @@ numberO.innerHTML = number;
 //making number valid for class assignment
 function floorToOddNumber() {
   let numCopy = number;
-  console.log(numCopy);
   if (numCopy > 0 && numCopy % 2 === 0) return numCopy - 1;
   return numCopy;
 }
@@ -57,13 +57,21 @@ buttonSubtract.addEventListener("click", () => {
     localStorage.setItem(key, number);
     if (number === 0)
       woda.classList.replace(`stage${number + 1}`, `stage${number}`);
-    //adjusting even numbers so the animation matches "add" transition
+
+    // adjusting animation for even numbers on decrement
+    // the transition takes place on the same number now
     if (number >= 2 && number <= 14 && number % 2 == 0) {
       woda.classList.replace(`stage${number + 1}`, `stage${number - 1}`);
     }
     getAllGlasses();
   }
   numberO.innerHTML = number;
+});
+
+tableCleanup.addEventListener("click", () => {
+  if (localStorage) localStorage.clear();
+  localStorage.setItem(key, number);
+  getAllGlasses();
 });
 
 //returning a PL date after all of em are sorted

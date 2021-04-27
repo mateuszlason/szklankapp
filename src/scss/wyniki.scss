@@ -9,10 +9,33 @@
   @media (min-width: 1500px) {
     font-size: 20px;
   }
+  &__kontener {
+    display: flex;
+    flex-direction: column;
+  }
   &__header {
     font-size: 28px;
     color: white;
     text-align: center;
+  }
+  &__button {
+    font-style: normal;
+    font-weight: normal;
+    line-height: 21px;
+    border: 0;
+    cursor: pointer;
+    font-size: 16px;
+    color: #ff0000;
+    padding: 8px 16px;
+    border-radius: 0 0 100% 100%;
+    background: white;
+    &:hover {
+      background-color: #ffe9e9;
+      font-weight: 600;
+    }
+    &:focus {
+      outline-style: none;
+    }
   }
   &__tabela {
     border-collapse: collapse;
