@@ -97,16 +97,33 @@ function getRate(value) {
 
 //table fill function
 function getAllGlasses() {
+  const todaysKey = key;
   const storage = Object.keys(localStorage).sort((a, b) => {
     return new Date(b) - new Date(a);
   });
   let content = "";
-  storage.forEach((key) => {
+  storage.forEach((key, index) => {
     let value = localStorage.getItem(key);
     content += `<tr><td>${formatDate(key)}</td><td>${value}</td><td>${getRate(
       value
-    )}</td></tr>`;
-    tableContent.innerHTML = content;
+    )}</td><td id="button--js${index}"></td></tr>`;
+  });
+  tableContent.innerHTML = content;
+
+  storage.forEach((key, index) => {
+    const button = document.createElement("button");
+    if (key === todaysKey) {
+      button.setAttribute("disabled", "");
+      button.classList.add("wyniki__button-delete--disabled");
+    }
+    button.classList.add("wyniki__button-delete");
+    button.innerText = "x";
+    button.addEventListener("click", () => {
+      localStorage.removeItem(key);
+      getAllGlasses();
+    });
+    document.getElementById(`button--js${index}`).appendChild(button);
   });
 }
+
 getAllGlasses();

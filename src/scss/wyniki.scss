@@ -22,37 +22,53 @@
     font-style: normal;
     font-weight: normal;
     line-height: 21px;
-    border: 0;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 14px;
     color: #ff0000;
     padding: 8px 16px;
+    border: 0;
     border-radius: 0 0 100% 100%;
     background: white;
+    @media (min-width: 1000px) {
+      font-size: 16px;
+    }
+    &-delete {
+      background: none;
+      border: 0;
+      padding: 0;
+      font-size: 24px;
+      height: 100%;
+      width: 100%;
+      color: #a71414;
+      cursor: pointer;
+      &--disabled {
+        color: rgb(177, 177, 177);
+      }
+    }
     &:hover {
       background-color: #ffe9e9;
-      font-weight: 600;
     }
     &:focus {
       outline-style: none;
     }
   }
+
   &__tabela {
     border-collapse: collapse;
     margin-top: 25px;
     min-width: 310px;
     max-width: 750px;
     box-shadow: 5px 10px 11px rgb(0 0 0 / 25%);
-
+    font-size: 0.8em;
     @media (min-width: 1000px) {
       min-width: 550px;
+      font-size: 1em;
     }
   }
 
   & thead tr {
     background-color: #174e7c;
     color: #ffffff;
-    font-size: 1em;
   }
   & th,
   td {
@@ -64,20 +80,17 @@
     color: white;
     font-weight: bold;
     font-size: 0.9em;
-    text-align: right;
-  }
-  & tbody tr td:nth-child(2) {
     text-align: center;
-  }
-  & tbody tr td:last-child {
-    text-align: left;
-  }
-
-  & tbody tr:nth-of-type(even) {
-    background-color: #f3f3f3;
-    color: #174e7c;
-  }
-  & tbody tr:last-of-type {
-    border-bottom: 5px solid #2196f3;
+    &:nth-of-type(even) {
+      background-color: #f3f3f3;
+      color: #174e7c;
+    }
+    &:last-of-type {
+      border-bottom: 5px solid #2196f3;
+    }
+    & td:last-child {
+      padding: 0;
+      height: 100%;
+    }
   }
 }
